@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(128, 215, 236);
+}
+.questionSection{
+    height: 250px;
+    /* width: 60%; */
+    /* width: max-content; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+}
+#input{
+    width: 50%;
+    text-align: center;
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 30px;
+}
+.answerSection{
+    height: 150px;
+    /* width: 60%; */
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+#output{
+    display: flex;
+    justify-content: space-around;
+}
+.options{
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 30px;
+}
