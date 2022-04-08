@@ -1,5 +1,7 @@
 body{
     background-color: rgb(128, 215, 236);
+    /* background-image: url("./images/denmark.jpg"); */
+    
 }
 .questionSection{
     height: 250px;
@@ -36,3 +38,25 @@ body{
     font-weight: 700;
     font-size: 30px;
 }
+#nextQuestion{
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 20px;
+}
+.bg-image {
+    
+    /* The image used */
+    background-image: url("./images/denmark.jpg");
+    
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    
+    /* Full height */
+    height: 100%; 
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
