@@ -1,3 +1,4 @@
+
 body{
     background-color: rgb(128, 215, 236);
     /* background-image: url("./images/denmark.jpg"); */
@@ -59,4 +60,22 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .nextAndClueButton{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      
+  }
+  #clue{
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 20px;
+  }
+  #imgClue{
+    border: 1px solid black;
+    height: 400px;
+    
+
   }

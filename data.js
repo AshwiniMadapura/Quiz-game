@@ -6,7 +6,6 @@ export const qestionArray=[
         answerB:"Copenhagen",
         answerC:"Helsingor",
         answerD:"Gothenberg",
-        correctAnswer:"Copenhagen",
         img:"./images/denmark.jpg",
         
     },
@@ -62,4 +61,4 @@ export const qestionArray=[
 ]
 
 
-export const correctAnsArray =["Copenhagen","Tooth Enamel"]
+export const correctAnsArray =["Copenhagen","Tooth Enamel","largest railway station","Insects",]
