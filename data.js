@@ -66,12 +66,12 @@ export const qestionArray=[
         img:"./images/cake.jpg",
     },
     {  
-        question:"Where is the Harry Potter Viaduct in?",
+        question:"Where can you find the famous Harry Potter bridge?",
         answerA:"Whales",
         answerB:"Netherland",
         answerC:"Scotland",
         answerD:"Ireland",
-        img:"./images/grampani.jpg",
+        img:"./images/harry.jpg",
     },
     {  
         question:"Pitch and Putt is a form of which game?",

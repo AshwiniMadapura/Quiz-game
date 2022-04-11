@@ -55,6 +55,11 @@ function ansButton(){
 
         }
     }
+    if(answerFlag==false && count==qestionArray.length-1){
+        console.log("inside if")
+        document.getElementById("scoreResult").innerHTML="Congratulations!! Your total score is "+score;
+    
+    }
 }
 
 
@@ -105,7 +110,9 @@ function nextButton(){
     document.getElementById("4").innerHTML=qestionArray[count].answerD;
     document.getElementById("questionNumber").innerHTML=count+1;
     const item = document.getElementById("image_clue");
+    if(item){
    item.remove();
+    }
     
     
 

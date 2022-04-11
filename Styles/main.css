@@ -6,14 +6,11 @@ body{
 }
 .questionSection{
     height: 250px;
-    /* width: 60%; */
-    /* width: max-content; */
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* border: 1px solid black; */
 }
 .header{
     width: 60%;
@@ -26,20 +23,16 @@ body{
 #input{
     width: 80%;
     text-align: center;
-    
     font-family: 'Work Sans';
     font-weight: 700;
     font-size: 30px;
     box-sizing: border-box;
-    /* border: none; */
     background-color: wheat;
     border: 2px solid rgb(17, 33, 179);
     border-radius: 4px;
 }
 .answerSection{
     height: 150px;
-    /* width: 60%; */
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -48,6 +41,8 @@ body{
 #output{
     display: flex;
     justify-content: space-around;
+    color: white;
+    font-size: 30px;
 }
 .options{
     font-family: 'Work Sans';
@@ -124,4 +119,11 @@ body{
     height: 400px;
     
 
+  }
+
+  #scoreResult{
+      text-align: center;
+      margin-top: 25px;
+      color: white;
+      font-size: 30px;
   }
