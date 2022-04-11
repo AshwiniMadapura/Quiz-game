@@ -1,5 +1,20 @@
 import {qestionArray,correctAnsArray} from "./data.js";
 
+let score=0;
+let count=0;
+let answerFlag=true;
+
+if(count==0){
+    console.log(qestionArray[count].question)
+    document.getElementById("input").value=qestionArray[count].question;
+    document.getElementById("1").innerHTML=qestionArray[count].answerA;
+    document.getElementById("2").innerHTML=qestionArray[count].answerB;
+    document.getElementById("3").innerHTML=qestionArray[count].answerC;
+    document.getElementById("4").innerHTML=qestionArray[count].answerD; 
+    document.getElementById("questionNumber").innerHTML=count+1; 
+    document.getElementById("score").innerHTML=0; 
+    }
+
 const optionButton=document.querySelectorAll(".options")
     optionButton.forEach(item=>{
         item.addEventListener("click",ansButton);
@@ -8,51 +23,59 @@ const optionButton=document.querySelectorAll(".options")
 function ansButton(){
     
     let chosenAns=""
+    if(answerFlag==true){
+    
     if (this.value == "answerA"){
         chosenAns = Object.values(qestionArray[count])[1]
+        answerFlag=false;
         console.log(count)
     }
     else if (this.value == "answerB"){
         chosenAns = Object.values(qestionArray[count])[2]
+        answerFlag=false;
     }
     else if (this.value == "answerC"){
         chosenAns = Object.values(qestionArray[count])[3]
+        answerFlag=false;
     }
     else if (this.value == "answerD"){
         chosenAns = Object.values(qestionArray[count])[4]
+        answerFlag=false;
     }
 
     if (chosenAns == correctAnsArray[count]){
-            document.getElementById("output").innerHTML="Correct!"    
+            document.getElementById("output").innerHTML="Correct!"   
+            score=score+20;
+            document.getElementById("score").innerHTML=score;
         }
         else{
-            document.getElementById("output").innerHTML="Incorrect"    
+            document.getElementById("output").innerHTML="Incorrect" 
+            score-=5;
+            document.getElementById("score").innerHTML=score; 
+
         }
-    
-}
-let count=0;
-if(count==0){
-    console.log(qestionArray[count].question)
-    document.getElementById("input").value=qestionArray[count].question;
-    document.getElementById("1").innerHTML=qestionArray[count].answerA;
-    document.getElementById("2").innerHTML=qestionArray[count].answerB;
-    document.getElementById("3").innerHTML=qestionArray[count].answerC;
-    document.getElementById("4").innerHTML=qestionArray[count].answerD;   
     }
+}
+
+
+
 
 document.getElementById("clue").addEventListener("click",clueButton);
 function clueButton(){
+    if(answerFlag==true){
     let x = document.createElement("IMG");
-    // let x=document.getElementById("imgClue")
-    // x.setAttribute("src", "./images/denmark.jpg");
+    x.setAttribute("id", "image_clue")
     x.setAttribute("src", qestionArray[count].img);
     // console.log(count+"inside image");
     x.setAttribute("width", "304");
     x.setAttribute("height", "228");
     
-    // x.setAttribute("alt", "The Pulpit Rock");
-    document.body.appendChild(x);
-    
+    document.querySelector("main").appendChild(x)
+    // document.main.appendChild(x);
+            
+            score-=5;
+            document.getElementById("score").innerHTML=score;
+    }
 //   }
 
 // return `<img src="${qestionArray.img} alt="" id="imgClueDemo"/>`
@@ -60,8 +83,10 @@ function clueButton(){
 
 document.getElementById("nextQuestion").addEventListener("click",nextButton);
 function nextButton(){
+    answerFlag=true;
     document.getElementById("output").innerHTML=" "  
     count++;
+    
     console.log(count);
     console.log(qestionArray[count].question)
     document.getElementById("input").value=qestionArray[count].question;
@@ -69,10 +94,20 @@ function nextButton(){
     document.getElementById("2").innerHTML=qestionArray[count].answerB;
     document.getElementById("3").innerHTML=qestionArray[count].answerC;
     document.getElementById("4").innerHTML=qestionArray[count].answerD;
-    const item = document.getElementsByName("IMG");
+    document.getElementById("questionNumber").innerHTML=count+1;
+    const item = document.getElementById("image_clue");
     // x.setAttribute("src", "");
-//    x.removeChild(x);
-    item.r
+   item.remove();
+    // item.r
+    if(count==qestionArray.length-1){
+        console.log(count)
+        console.log(qestionArray.length)
+        document.getElementById("nextQuestion").style.display="none";
+        // document.getElementById("endGame").addEventListener("click",nextButton);
+        console.log(score)
+        
+    }
 
 }
-    
+document.getElementById("scoreResult").innerHTML=score;
+document.getElementById("scoreResult").style.display="none";

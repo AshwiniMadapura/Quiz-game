@@ -1,7 +1,7 @@
 
 body{
-    background-color: rgb(128, 215, 236);
-    /* background-image: url("./images/denmark.jpg"); */
+    /* background-color: rgb(128, 215, 236); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Seamless_network_background.jpg");
     
 }
 .questionSection{
@@ -10,21 +10,36 @@ body{
     /* width: max-content; */
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+}
+.header{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
 }
 #input{
     width: 50%;
     text-align: center;
+    
     font-family: 'Work Sans';
     font-weight: 700;
     font-size: 30px;
+    box-sizing: border-box;
+    /* border: none; */
+    background-color: wheat;
+    border: 2px solid rgb(17, 33, 179);
+    border-radius: 4px;
 }
 .answerSection{
     height: 150px;
     /* width: 60%; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -38,12 +53,43 @@ body{
     font-family: 'Work Sans';
     font-weight: 700;
     font-size: 30px;
+    box-sizing: border-box;
+    border: 2px solid rgb(17, 33, 179);
+    background-color: wheat;
+    border-radius: 4px;
 }
 #nextQuestion{
     font-family: 'Work Sans';
     font-weight: 500;
     font-size: 20px;
+    border-radius: 12px;
+    width: 200px;
+    background-color: #3CBC8D;
+    color: blue; 
 }
+#endGame{
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 12px;
+    width: 200px;
+    background-color: #3CBC8D;   
+}
+#endGame>a{
+    text-decoration: none;
+    
+    color: blue;
+}
+#clue{
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 12px;
+    width: 200px; 
+    background-color: #3CBC8D; 
+    color: blue;
+  }
+
 .bg-image {
     
     /* The image used */
@@ -68,13 +114,9 @@ body{
       justify-content: space-around;
       
   }
-  #clue{
-    font-family: 'Work Sans';
-    font-weight: 500;
-    font-size: 20px;
-  }
+ 
   #imgClue{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 400px;
     
 

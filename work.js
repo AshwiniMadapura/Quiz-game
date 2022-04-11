@@ -1,100 +1,90 @@
 import {qestionArray,correctAnsArray} from "./data.js";
 
-
-
 const optionButton=document.querySelectorAll(".options")
     optionButton.forEach(item=>{
         item.addEventListener("click",ansButton);
     })
 
-// function ansButton(){
-//     console.log(this.value);
-//     if(this.value==1){
-//         document.getElementById("output").innerHTML="correct"
-//     }else if(this.value==0){
-//         document.getElementById("output").innerHTML="incorrect"
-//     }
-// }
-
 function ansButton(){
-    // console.log(qestionArray[0].correctAnswer)
     
-    // console.log(typeof(this.value))
-    // console.log(Object.keys(qestionArray[0])[3])
-
-    // let chosenAns=this.value;
     let chosenAns=""
+    if(answerFlag==true){
+    
     if (this.value == "answerA"){
         chosenAns = Object.values(qestionArray[count])[1]
+        answerFlag=false;
         console.log(count)
     }
     else if (this.value == "answerB"){
         chosenAns = Object.values(qestionArray[count])[2]
+        answerFlag=false;
     }
     else if (this.value == "answerC"){
         chosenAns = Object.values(qestionArray[count])[3]
+        answerFlag=false;
     }
     else if (this.value == "answerD"){
         chosenAns = Object.values(qestionArray[count])[4]
+        answerFlag=false;
     }
 
     if (chosenAns == correctAnsArray[count]){
-            document.getElementById("output").innerHTML="Correct!"    
+            document.getElementById("output").innerHTML="Correct!"   
+            score=score+20;
+            document.getElementById("score").innerHTML=score;
         }
         else{
-            document.getElementById("output").innerHTML="Incorrect"    
-        }
-    
-    
-    // if(qestionArray[0].correctAnswer==qestionArray[0].this.value){
-    //     console.log(qestionArray[0].correctAnswer,qestionArray[0].answerA)
-    //     console.log("insideIf?");
-    //     document.getElementById("output").innerHTML="correct"
-    // }
-    // // else if(qestionArray[0].correctAnswer==qestionArray[0].answerB){
-    // //         console.log("inside ansB")
-    // //         document.getElementById("output").innerHTML="correct"
-    // //     }
-    // else{
-    //     console.log("insideElse?");
-    //     document.getElementById("output").innerHTML="incorrect"
-    // }
+            document.getElementById("output").innerHTML="Incorrect" 
+            score-=5;
+            document.getElementById("score").innerHTML=score; 
 
-    // if(qestionArray[0].correctAnswer==qestionArray[0].answerB){
-    //     console.log("inside ansB")
-    //     document.getElementById("output").innerHTML="correct"
-    // }else{
-    //     console.log("insideBElse?");
-    //      document.getElementById("output").innerHTML="incorrect"
-    // }   
+        }
+    }
 }
+let score=0;
 let count=0;
+let answerFlag=true;
+
 if(count==0){
     console.log(qestionArray[count].question)
     document.getElementById("input").value=qestionArray[count].question;
     document.getElementById("1").innerHTML=qestionArray[count].answerA;
     document.getElementById("2").innerHTML=qestionArray[count].answerB;
     document.getElementById("3").innerHTML=qestionArray[count].answerC;
-    document.getElementById("4").innerHTML=qestionArray[count].answerD;
-    // document.getElementById("imgsec").value=qestionArray[count].img;
-
-    // function myFunction() {
-        var x = document.createElement("IMG");
-        // x.setAttribute("src", "./images/denmark.jpg");
-        x.setAttribute("src", qestionArray[count].img);
-        console.log(count+"inside image");
-        x.setAttribute("width", "304");
-        x.setAttribute("height", "228");
-        
-        // x.setAttribute("alt", "The Pulpit Rock");
-        document.body.appendChild(x);
-    //   }
+    document.getElementById("4").innerHTML=qestionArray[count].answerD; 
+    document.getElementById("questionNumber").innerHTML=count+1; 
+    document.getElementById("score").innerHTML=0; 
     }
+
+
+
+document.getElementById("clue").addEventListener("click",clueButton);
+function clueButton(){
+    if(answerFlag==true){
+    let x = document.createElement("IMG");
+    
+    x.setAttribute("src", qestionArray[count].img);
+    // console.log(count+"inside image");
+    x.setAttribute("width", "304");
+    x.setAttribute("height", "228");
+    
+    
+    document.body.appendChild(x);
+            
+            score-=5;
+            document.getElementById("score").innerHTML=score;
+    }
+//   }
+
+// return `<img src="${qestionArray.img} alt="" id="imgClueDemo"/>`
+}
 
 document.getElementById("nextQuestion").addEventListener("click",nextButton);
 function nextButton(){
+    answerFlag=true;
     document.getElementById("output").innerHTML=" "  
     count++;
+    
     console.log(count);
     console.log(qestionArray[count].question)
     document.getElementById("input").value=qestionArray[count].question;
@@ -102,15 +92,20 @@ function nextButton(){
     document.getElementById("2").innerHTML=qestionArray[count].answerB;
     document.getElementById("3").innerHTML=qestionArray[count].answerC;
     document.getElementById("4").innerHTML=qestionArray[count].answerD;
-
-    var x = document.createElement("IMG");
-        // x.setAttribute("src", "./images/denmark.jpg");
-        x.setAttribute("src", qestionArray[count].img);
-        console.log(count+"inside image");
-        x.setAttribute("width", "304");
-        x.setAttribute("height", "228");
+    document.getElementById("questionNumber").innerHTML=count+1;
+    // const item = document.getElementsByName("IMG");
+    // x.setAttribute("src", "");
+//    x.removeChild(x);
+    // item.r
+    if(count==qestionArray.length-1){
+        console.log(count)
+        console.log(qestionArray.length)
+        document.getElementById("nextQuestion").style.display="none";
+        // document.getElementById("endGame").addEventListener("click",nextButton);
+        console.log(score)
         
-        // x.setAttribute("alt", "The Pulpit Rock");
-        document.body.appendChild(x);
+    }
+
 }
-    
+document.getElementById("scoreResult").innerHTML=score;
+document.getElementById("scoreResult").style.display="none";

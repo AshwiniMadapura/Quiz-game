@@ -11,6 +11,16 @@
     
     <main id="Startgame">
         <section class="questionSection" id="imgsec">
+            <div class="header">
+                <div>
+                    <h3>Question: </h3>
+                    <h3 id="questionNumber"></h3>
+                </div>
+                <div>
+                    <h3>Your score is:</h3>
+                    <h3 id="score"></h3>
+                </div>
+            </div>
         <input type="text" id="input">
         </section>
         <section class="answerSection">
@@ -23,12 +33,14 @@
         <h2 id="output"></h2>
         <div class="nextAndClueButton">
         <button id="nextQuestion">Next question</button>
+        <button id="endGame" ><a href="score.html">End Game</a></button>
         <button id="clue">Show Clue</button>
         </div>
-        <section id="imgClue">
+        <h2 id="scoreResult"></h2>
+        <!-- <section id="imgClue">
 
-        </section>
-        <script src="./main.js" type="module"></script>
+        </section> -->
+        <script src="./work.js" type="module"></script>
     </main>
 </body>
 </html>
