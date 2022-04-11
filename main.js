@@ -78,8 +78,9 @@ function clueButton(){
     document.querySelector("main").appendChild(x)
     // document.main.appendChild(x);
             
-            score-=5;
-            document.getElementById("score").innerHTML=score;
+    score-=5;
+    document.getElementById("score").innerHTML=score;
+    answerFlag=false;
     }
 //   }
 

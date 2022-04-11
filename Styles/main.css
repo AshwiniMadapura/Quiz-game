@@ -1,11 +1,16 @@
 
-body{
+body,html{
     /* background-color: rgb(128, 215, 236); */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Seamless_network_background.jpg");
+    height: 100%;
+    width: auto;
     
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Seamless_network_background.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
 }
 .questionSection{
-    height: 250px;
+    height: 200px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -13,9 +18,9 @@ body{
     text-align: center;
 }
 .header{
-    width: 60%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     color: white;
@@ -25,38 +30,42 @@ body{
     text-align: center;
     font-family: 'Work Sans';
     font-weight: 700;
-    font-size: 30px;
+    font-size: 20px;
     box-sizing: border-box;
     background-color: wheat;
     border: 2px solid rgb(17, 33, 179);
     border-radius: 4px;
+    word-wrap: break-word;
+    /* word-break: break-all; */
 }
 .answerSection{
     height: 150px;
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
     align-items: center;
     text-align: center;
 }
-#output{
-    display: flex;
-    justify-content: space-around;
-    color: white;
-    font-size: 30px;
-}
+
 .options{
     font-family: 'Work Sans';
     font-weight: 700;
-    font-size: 30px;
+    font-size: 20px;
     box-sizing: border-box;
     border: 2px solid rgb(17, 33, 179);
     background-color: wheat;
     border-radius: 4px;
 }
+#output{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-size: 20px;
+}
 #nextQuestion{
     font-family: 'Work Sans';
     font-weight: 500;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 12px;
     width: 200px;
     background-color: #3CBC8D;
@@ -65,9 +74,9 @@ body{
 #endGame{
     font-family: 'Work Sans';
     font-weight: 500;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 12px;
-    width: 200px;
+    width: 150px;
     background-color: #3CBC8D;   
 }
 #endGame>a{
@@ -78,34 +87,24 @@ body{
 #clue{
     font-family: 'Work Sans';
     font-weight: 500;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 12px;
     width: 200px; 
     background-color: #3CBC8D; 
     color: blue;
+    
   }
 
-.bg-image {
-    
-    /* The image used */
-    background-image: url("./images/denmark.jpg");
-    
-    /* Add the blur effect */
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    
-    /* Full height */
-    height: 100%; 
-    
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
   #image_clue{
-      margin-left: 40%;
-      margin-top: 5%;
-  }
+    margin-left: 7%;
+    /* margin-top: 10%; */
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    
+}
+  
 
   .nextAndClueButton{
       display: flex;
@@ -114,16 +113,77 @@ body{
       
   }
  
-  #imgClue{
-    /* border: 1px solid black; */
-    height: 400px;
-    
-
-  }
 
   #scoreResult{
       text-align: center;
       margin-top: 25px;
       color: white;
       font-size: 30px;
+  }
+
+  /* @media screen and (min-width:400px) {
+    #input{
+        font-size: 28px;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .answerSection{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .options{
+        font-size: 15px;
+    }
+    #output{
+        font-size: 30px;
+    }
+    #nextQuestion{
+        font-size: 15px;
+    }
+    #endGame{
+        font-size: 15px;
+    }
+    #clue{
+        font-size: 15px;
+    }
+    #image_clue{
+        margin-left: 12%;
+        margin-top: 5%;
+    }
+    
+  } */
+  @media screen and (min-width:600px) {
+    #input{
+        font-size: 28px;
+        word-wrap: break-word;
+    }
+    .answerSection{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .options{
+        font-size: 15px;
+    }
+    #output{
+        font-size: 30px;
+    }
+    #nextQuestion{
+        font-size: 25px;
+    }
+    #endGame{
+        font-size: 25px;
+    }
+    .options{
+        font-weight: 700;
+        font-size: 30px;
+    }
+    #clue{
+        font-size: 25px;
+    }
+    #image_clue{
+        margin-left: 35%;
+        margin-top: 10%;
+    }
   }

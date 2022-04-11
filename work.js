@@ -1,5 +1,20 @@
 import {qestionArray,correctAnsArray} from "./data.js";
 
+let score=0;
+let count=0;
+let answerFlag=true;
+
+if(count==0){
+    console.log(qestionArray[count].question)
+    document.getElementById("input").value=qestionArray[count].question;
+    document.getElementById("1").innerHTML=qestionArray[count].answerA;
+    document.getElementById("2").innerHTML=qestionArray[count].answerB;
+    document.getElementById("3").innerHTML=qestionArray[count].answerC;
+    document.getElementById("4").innerHTML=qestionArray[count].answerD; 
+    document.getElementById("questionNumber").innerHTML=count+1; 
+    document.getElementById("score").innerHTML=0; 
+    }
+
 const optionButton=document.querySelectorAll(".options")
     optionButton.forEach(item=>{
         item.addEventListener("click",ansButton);
@@ -40,21 +55,13 @@ function ansButton(){
 
         }
     }
-}
-let score=0;
-let count=0;
-let answerFlag=true;
-
-if(count==0){
-    console.log(qestionArray[count].question)
-    document.getElementById("input").value=qestionArray[count].question;
-    document.getElementById("1").innerHTML=qestionArray[count].answerA;
-    document.getElementById("2").innerHTML=qestionArray[count].answerB;
-    document.getElementById("3").innerHTML=qestionArray[count].answerC;
-    document.getElementById("4").innerHTML=qestionArray[count].answerD; 
-    document.getElementById("questionNumber").innerHTML=count+1; 
-    document.getElementById("score").innerHTML=0; 
+    if(answerFlag==false && count==qestionArray.length-1){
+        console.log("inside if")
+        document.getElementById("scoreResult").innerHTML="Congratulations!! Your total score is "+score;
+    
     }
+}
+
 
 
 
@@ -62,17 +69,18 @@ document.getElementById("clue").addEventListener("click",clueButton);
 function clueButton(){
     if(answerFlag==true){
     let x = document.createElement("IMG");
-    
+    x.setAttribute("id", "image_clue")
     x.setAttribute("src", qestionArray[count].img);
     // console.log(count+"inside image");
     x.setAttribute("width", "304");
     x.setAttribute("height", "228");
     
-    
-    document.body.appendChild(x);
+    document.querySelector("main").appendChild(x)
+    // document.main.appendChild(x);
             
-            score-=5;
-            document.getElementById("score").innerHTML=score;
+    score-=5;
+    document.getElementById("score").innerHTML=score;
+    answerFlag=false;
     }
 //   }
 
@@ -84,6 +92,15 @@ function nextButton(){
     answerFlag=true;
     document.getElementById("output").innerHTML=" "  
     count++;
+
+    if(count==qestionArray.length-1){
+        console.log(count)
+        console.log(qestionArray.length)
+        document.getElementById("nextQuestion").style.display="none";
+        // document.getElementById("endGame").addEventListener("click",nextButton);
+        console.log(score)
+        
+    }
     
     console.log(count);
     console.log(qestionArray[count].question)
@@ -93,19 +110,13 @@ function nextButton(){
     document.getElementById("3").innerHTML=qestionArray[count].answerC;
     document.getElementById("4").innerHTML=qestionArray[count].answerD;
     document.getElementById("questionNumber").innerHTML=count+1;
-    // const item = document.getElementsByName("IMG");
-    // x.setAttribute("src", "");
-//    x.removeChild(x);
-    // item.r
-    if(count==qestionArray.length-1){
-        console.log(count)
-        console.log(qestionArray.length)
-        document.getElementById("nextQuestion").style.display="none";
-        // document.getElementById("endGame").addEventListener("click",nextButton);
-        console.log(score)
-        
+    const item = document.getElementById("image_clue");
+    if(item){
+   item.remove();
     }
+    
+    
 
 }
-document.getElementById("scoreResult").innerHTML=score;
-document.getElementById("scoreResult").style.display="none";
+// document.getElementById("scoreResult").innerHTML=score;
+// document.getElementById("scoreResult").style.display="none";
