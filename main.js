@@ -86,6 +86,15 @@ function nextButton(){
     answerFlag=true;
     document.getElementById("output").innerHTML=" "  
     count++;
+
+    if(count==qestionArray.length-1){
+        console.log(count)
+        console.log(qestionArray.length)
+        document.getElementById("nextQuestion").style.display="none";
+        // document.getElementById("endGame").addEventListener("click",nextButton);
+        console.log(score)
+        
+    }
     
     console.log(count);
     console.log(qestionArray[count].question)
@@ -96,18 +105,10 @@ function nextButton(){
     document.getElementById("4").innerHTML=qestionArray[count].answerD;
     document.getElementById("questionNumber").innerHTML=count+1;
     const item = document.getElementById("image_clue");
-    // x.setAttribute("src", "");
    item.remove();
-    // item.r
-    if(count==qestionArray.length-1){
-        console.log(count)
-        console.log(qestionArray.length)
-        document.getElementById("nextQuestion").style.display="none";
-        // document.getElementById("endGame").addEventListener("click",nextButton);
-        console.log(score)
-        
-    }
+    
+    
 
 }
-document.getElementById("scoreResult").innerHTML=score;
-document.getElementById("scoreResult").style.display="none";
+// document.getElementById("scoreResult").innerHTML=score;
+// document.getElementById("scoreResult").style.display="none";

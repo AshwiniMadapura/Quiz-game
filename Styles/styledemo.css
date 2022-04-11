@@ -24,7 +24,7 @@ body{
     color: white;
 }
 #input{
-    width: 50%;
+    width: 80%;
     text-align: center;
     
     font-family: 'Work Sans';
@@ -106,6 +106,10 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  #image_clue{
+      margin-left: 40%;
+      margin-top: 5%;
   }
 
   .nextAndClueButton{
